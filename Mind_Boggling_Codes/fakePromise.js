@@ -1,9 +1,5 @@
 const fakePromise = (msg,shouldReject) => new Promise((resolve,reject) =>{
-    if(shouldReject){
-        reject(`WTH is this ungodly message: ${msg}`)
-    }else{
-        resolve("Wow Your Message Passed")
-    }  
+    shouldReject ? reject(`WTH is this ungodly message: ${msg}`):resolve("Wow Your Message Passed")
 })
 
 const err = (error) => console.log(error)
