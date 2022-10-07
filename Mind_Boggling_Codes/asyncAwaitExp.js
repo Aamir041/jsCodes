@@ -5,8 +5,8 @@ const fakePromise = (userName,passWord) => new Promise((resolve,reject) => {
 const assignRole = (status) => new Promise( (resolve) => resolve("Manager"))
 
 const assignTime = () => new Promise((resolve) => {
-    var today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let today = new Date();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     resolve(time)
 })
 
