@@ -24,5 +24,6 @@ async function logIn (userName,passWord){
 
 
 }
+logIn("Aamir","a12")
 logIn("Aamir Saudagar","a12")
 
