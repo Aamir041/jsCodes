@@ -1,30 +1,21 @@
-/* create a promise with 4 api calls
-1-> createOrder
-2-> proceedToPayment
-3-> showOrderSummary
-4-> updateWallet -> :( kidhar implement karu isko
-*/
-
 const kart = ["shoes", "bag", "deo", "cricket bat"]
-
-let balance = 1000;
-let bill = 400;
-let afterPayment = balance - bill;
 
 const validateKart = (kart) => kart.length > 0 ? true : false;
 
 const proceedToPayment = (id) => {
-
-
+    const details = {
+        balance: 100,
+        bill:400,
+        Id:id
+    };
     return new Promise((resolvePay,rejectPay) => {
-        balance > bill ? resolvePay(id) : rejectPay(new Error("You dont have enough balance to procees:("))
+        details.balance > details.bill ? resolvePay(details) : rejectPay(new Error("You dont have enough balance to procees :("))
     })
 }
 
-const showOrderSummary = (id) => {
-    return new Promise((resolve) => {
-        resolve(`Your Order:${id} of Rs.${bill} has been payed successfully!`,afterPayment)
-    })
+const updateWallet = (detailObj) => {
+    detailObj.balance = detailObj.balance - detailObj.bill;
+    return (detailObj)
 }
 
 //  Producing Code
@@ -45,12 +36,11 @@ createOrder(kart).then((id) => {
 }).then((id) =>{
     console.log("Proceeding to payment")
     return proceedToPayment(id)
-}).then((id) => {
-    return showOrderSummary(id);
-}).then((msg) => {
-    console.log(msg)
-    console.log(`Wallet Balance is : ${afterPayment}`)
+}).then((detailObj) => {
+    console.log(`Your Order:${detailObj.Id} of Rs.${detailObj.bill} has been payed successfully!`)
+    return updateWallet(detailObj)
+}).then((detailObj) => {
+    console.log(`Your Current Balance is ${detailObj.balance}`)
 }).catch((err) => {
     console.log(err.message)
 })
-
