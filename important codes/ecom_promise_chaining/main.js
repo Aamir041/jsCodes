@@ -4,7 +4,7 @@ const validateKart = (kart) => kart.length > 0 ? true : false;
 
 const proceedToPayment = (id) => {
     const details = {
-        balance: 100,
+        balance: 1000,
         bill:400,
         Id:id
     };
