@@ -1,0 +1,24 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgba(11, 4, 83, 0.855);
+    color: white;
+    font-family:monospace;
+    
+}
+
+header{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1{
+    margin-top: 2%;
+    font-weight: 400;
+    font-size: 356%;
+}
